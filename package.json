@@ -1,7 +1,7 @@
 {
   "name": "electron-github-notetaker",
   "version": "1.0.0",
-  "main": "electron/index.js",
+  "main": "native/index.js",
   "scripts": {
     "start": "node server",
     "start-prod": "npm run package && npm start",
