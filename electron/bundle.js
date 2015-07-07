@@ -1,6 +1,6 @@
 var Webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
-var webpackConfig = require('./../webpack.config.js');
+var webpackConfig = require('./../webpack.electron.config.js');
 
 module.exports = function() {
   var bundleStart = null;
@@ -13,19 +13,5 @@ module.exports = function() {
 
   compiler.plugin('done', function() {
     console.log('Bundled in ' + (Date.now() - bundleStart) + 'ms!');
-  });
-
-  var bundler = new WebpackDevServer(compiler, {
-    publicPath: '/assets/',
-    hot: true,
-    quiet: false,
-    noInfo: true,
-    stats: {
-      colors: true
-    }
-  });
-
-  bundler.listen(3333, 'localhost', function() {
-    console.log('Bundling project, please wait...');
   });
 };

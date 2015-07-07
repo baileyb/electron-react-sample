@@ -1,9 +1,12 @@
 {
   "name": "electron-github-notetaker",
   "version": "1.0.0",
-  "main": "app/main.js",
+  "main": "electron/index.js",
   "scripts": {
-    "start": "node server"
+    "start": "node server",
+    "clean": "rm -rf public/assets",
+    "package": "npm run clean && NODE_ENV=production webpack -p --config webpack.production.config.js",
+    "native": "npm run clean && webpack -p --config webpack.electron.config.js && electron ."
   },
   "description": "Sample Electron App Using ES6 & React",
   "author": "Brian Bailey <baileyb@gmail.com>",
