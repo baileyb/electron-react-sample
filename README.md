@@ -17,5 +17,18 @@ Server runs on port 5000 and is serving everything from public/
 Port 5000 was used because 8080 doesn't work on Mavericks with Cisco installed
 
 # Run as an electron app
+```
 webpack -p --config webpack.electron.config.js
 electron .
+```
+
+# Automated tasks for doing the above
+```
+"scripts": {
+  "start": "node server",
+  "start-prod": "npm run package && npm start",
+  "clean": "rm -rf public/assets",
+  "package": "npm run clean && NODE_ENV=production webpack -p --config webpack.production.config.js",
+  "native": "npm run clean && webpack -p --config webpack.electron.config.js && electron ."
+}
+```
